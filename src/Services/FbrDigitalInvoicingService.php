@@ -43,8 +43,10 @@ class FbrDigitalInvoicingService
         if ($this->loggingEnabled) {
             error_log('FBR: Posting invoice data - ' . $invoiceData->invoiceType . ' from ' . $invoiceData->sellerNTNCNIC . ' to ' . $invoiceData->buyerNTNCNIC);
         }
-
+        
+        // dd($endpoint,$data);
         $response = $this->makeRequest('POST', $endpoint, $data);
+
         return InvoiceResponse::fromArray($response);
     }
 
@@ -59,9 +61,11 @@ class FbrDigitalInvoicingService
         if ($this->loggingEnabled) {
             error_log('FBR: Validating invoice data - ' . $invoiceData->invoiceType . ' from ' . $invoiceData->sellerNTNCNIC . ' to ' . $invoiceData->buyerNTNCNIC);
         }
-
+                
         $response = $this->makeRequest('POST', $endpoint, $data);
+        
         return InvoiceResponse::fromArray($response);
+
     }
 
     /**
@@ -69,24 +73,28 @@ class FbrDigitalInvoicingService
      */
     private function makeRequest(string $method, string $endpoint, array $data = []): array
     {
+
         $lastException = null;
         
         for ($attempt = 1; $attempt <= $this->retryAttempts; $attempt++) {
             try {
+                
                 $curl = curl_init();
                 curl_setopt_array($curl, [
                     CURLOPT_URL => $this->baseUrl . $endpoint,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_TIMEOUT => $this->timeout,
                     CURLOPT_SSL_VERIFYPEER => false,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_SSL_VERIFYHOST => false,
                     CURLOPT_HTTPHEADER => [
                         'Authorization: Bearer ' . $this->bearerToken,
-                        'Content-Type: application/json',
-                        'Accept: application/json',
+                        'Content-Type: application/json'
+                        
                     ],
                 ]);
-
+             
                 if ($method === 'POST') {
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
                     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
