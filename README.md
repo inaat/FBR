@@ -1,8 +1,10 @@
 # FBR Digital Invoicing Laravel Package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fbr/digital-invoicing.svg?style=flat-square)](https://packagist.org/packages/fbr/digital-invoicing)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fbr/digital-invoicing/run-tests?label=tests)](https://github.com/fbr/digital-invoicing/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/inaat/fbr-digital-invoicing/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/inaat/fbr-digital-invoicing/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/fbr/digital-invoicing.svg?style=flat-square)](https://packagist.org/packages/fbr/digital-invoicing)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![PHP Version](https://img.shields.io/packagist/php-v/fbr/digital-invoicing?style=flat-square)](https://packagist.org/packages/fbr/digital-invoicing)
 
 A comprehensive Laravel package for integrating with Pakistan's Federal Board of Revenue (FBR) Digital Invoicing System API v1.12.
 

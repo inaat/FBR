@@ -1,0 +1,48 @@
+# Composer
+/vendor/
+composer.lock
+
+# Laravel specific
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+/storage/logs/*.log
+
+# Cache
+/bootstrap/cache/*.php
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Testing
+/coverage/
+.phpunit.cache/
+/build/
+
+# Package testing directories
+/test-published-package/
+/examples/fbr-test/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
